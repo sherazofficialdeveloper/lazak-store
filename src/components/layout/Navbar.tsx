@@ -37,22 +37,30 @@ export const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'bg-surface/90 backdrop-blur-xl shadow-medium' : 'bg-transparent'
+      isScrolled ? 'bg-surface/90 backdrop-blur-xl shadow-medium' : 'bg-black/40 backdrop-blur-md border-b border-white/10'
     }`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Logo />
+            <div className={isScrolled ? '' : 'brightness-0 invert'}>
+              <Logo />
+            </div>
 
             {/* Desktop Search */}
             <div className="hidden lg:flex flex-1 max-w-md lg:max-w-xl mx-4 lg:mx-8">
               <div className="relative w-full group">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted w-4 h-4 group-focus-within:text-primary transition-colors" />
+                <Search className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${
+                  isScrolled ? 'text-muted group-focus-within:text-primary' : 'text-white/60 group-focus-within:text-white'
+                }`} />
                 <input 
                   type="text" 
                   placeholder="Search premium BBQ & Kitchen gear..." 
-                  className="w-full pl-12 pr-4 py-3 bg-muted/5 border border-muted/10 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/10 focus:bg-white focus:border-primary transition-all text-sm font-medium"
+                  className={`w-full pl-12 pr-4 py-3 border rounded-full focus:outline-none focus:ring-4 transition-all text-sm font-medium ${
+                    isScrolled 
+                      ? 'bg-muted/5 border-muted/10 focus:bg-white focus:border-primary focus:ring-primary/10' 
+                      : 'bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white focus:ring-white/10'
+                  }`}
                 />
               </div>
             </div>
@@ -65,7 +73,9 @@ export const Navbar = () => {
                     key={link.path} 
                     to={link.path}
                     className={`text-sm font-medium transition-all hover:text-primary relative group ${
-                      location.pathname === link.path ? 'text-primary' : 'text-text-main'
+                      location.pathname === link.path 
+                        ? 'text-primary' 
+                        : (isScrolled ? 'text-text-main' : 'text-white hover:text-white/80')
                     }`}
                   >
                     {link.name}
@@ -78,7 +88,11 @@ export const Navbar = () => {
 
               <div className="flex items-center gap-1 md:gap-2">
                 <Link to="/favorites" className="relative p-2 md:p-2.5 hover:bg-primary/5 rounded-full transition-all group">
-                  <Heart className={`w-5 h-5 transition-colors ${favoriteCount > 0 ? 'text-red-500 fill-current' : 'text-text-main group-hover:text-primary'}`} />
+                  <Heart className={`w-5 h-5 transition-colors ${
+                    favoriteCount > 0 
+                      ? 'text-red-500 fill-current' 
+                      : (isScrolled ? 'text-text-main group-hover:text-primary' : 'text-white group-hover:text-white/80')
+                  }`} />
                   {favoriteCount > 0 && (
                     <span className="absolute top-1 right-1 w-5 h-5 bg-accent text-white text-[10px] font-medium flex items-center justify-center rounded-full border-2 border-surface shadow-sm">
                       {favoriteCount}
@@ -86,14 +100,16 @@ export const Navbar = () => {
                   )}
                 </Link>
                 <Link to="/cart" className="relative p-2 md:p-2.5 hover:bg-primary/5 rounded-full transition-all group">
-                  <ShoppingCart className="w-5 h-5 text-text-main group-hover:text-primary transition-colors" />
+                  <ShoppingCart className={`w-5 h-5 transition-colors ${
+                    isScrolled ? 'text-text-main group-hover:text-primary' : 'text-white group-hover:text-white/80'
+                  }`} />
                   {cartCount > 0 && (
                     <span className="absolute top-1 right-1 w-5 h-5 bg-primary text-white text-[10px] font-medium flex items-center justify-center rounded-full border-2 border-surface shadow-sm">
                       {cartCount}
                     </span>
                   )}
                 </Link>
-                <div className="w-px h-6 bg-muted/20 mx-2 hidden md:block" />
+                <div className={`w-px h-6 mx-2 hidden md:block ${isScrolled ? 'bg-muted/20' : 'bg-white/20'}`} />
                 <div className="flex items-center gap-3">
                   <Link to="/signup">
                     <Button variant="primary" size="sm" className="flex items-center gap-2 rounded-xl px-4 md:px-6 shadow-sm hover:shadow-md h-9 md:h-10 text-xs md:text-sm">
@@ -108,7 +124,9 @@ export const Navbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="md:hidden p-2.5 hover:bg-muted/10 rounded-full transition-colors"
+              className={`md:hidden p-2.5 rounded-full transition-colors ${
+                isScrolled ? 'hover:bg-muted/10 text-text-main' : 'hover:bg-white/10 text-white'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
