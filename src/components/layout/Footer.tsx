@@ -15,7 +15,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <img src="black-logo.png" alt="" className="w-44 h-32"/>
+            <img src="black-logo-removebg-preview.png" alt="" className="w-44 h-32"/>
             <p className="text-white leading-relaxed max-w-xs">
               Premium BBQ packaging and professional kitchen grills for the modern home chef. Essentials with Care.
             </p>

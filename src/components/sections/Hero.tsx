@@ -43,7 +43,7 @@ export const Hero = () => {
       {/* Background Image with Enhanced Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+          src="pack.jpeg" 
           alt="Premium BBQ & Kitchen" 
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
