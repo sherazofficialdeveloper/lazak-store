@@ -12,11 +12,10 @@ interface CardProps {
   hover?: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ children, className, hover = true }) => {
+export const Card: React.FC<CardProps> = ({ children, className, hover = false }) => {
   return (
     <div className={cn(
-      'bg-surface border border-muted/10 overflow-hidden',
-      hover && 'transition-main hover:-translate-y-1',
+      'bg-surface border border-muted/5 overflow-hidden rounded-[18px] shadow-soft',
       className
     )}>
       {children}

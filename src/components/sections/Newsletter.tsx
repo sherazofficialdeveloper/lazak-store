@@ -17,7 +17,7 @@ export const Newsletter = () => {
               <Mail className="w-7 h-7" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-text-main tracking-tight uppercase leading-none">Join LAZAK for exclusive updates & offers</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-text-main tracking-tight uppercase leading-none">Join LAZAK for exclusive updates & offers</h2>
               <p className="text-muted text-lg font-medium">
                 Subscribe to get early access to new BBQ drops, exclusive recipes, and grilling tips.
               </p>
@@ -28,7 +28,7 @@ export const Newsletter = () => {
                   <img key={i} src={`https://i.pravatar.cc/100?u=${i}`} className="w-10 h-10 border-2 border-white" alt="" />
                 ))}
               </div>
-              <p className="text-sm font-bold text-text-main uppercase tracking-widest">
+              <p className="text-sm font-medium text-text-main uppercase tracking-widest">
                 <span className="text-primary">10k+</span> members joined
               </p>
             </div>
@@ -38,13 +38,13 @@ export const Newsletter = () => {
             <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
               <Input 
                 placeholder="Enter your email address" 
-                className="bg-background border-none h-14 px-6 rounded-none"
+                className="bg-background border-none h-14 px-6 rounded-[12px]"
               />
-              <Button size="lg" className="h-14 px-10 uppercase tracking-widest text-xs rounded-none">
+              <Button size="lg" className="h-14 px-10 uppercase tracking-widest text-xs">
                 Subscribe
               </Button>
             </form>
-            <p className="text-[10px] text-text-muted text-center sm:text-left ml-4 uppercase tracking-widest font-bold">
+            <p className="text-[15px] text-text-muted text-center sm:text-left ml-4 uppercase tracking-widest font-medium">
               By subscribing, you agree to our <a href="#" className="text-primary hover:underline">Privacy Policy</a> and <a href="#" className="text-primary hover:underline">Terms of Service</a>.
             </p>
           </div>

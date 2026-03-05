@@ -15,7 +15,7 @@ const CategoryPage = () => {
   if (!category) {
     return (
       <div className="pt-40 pb-20 text-center">
-        <h1 className="text-2xl font-bold">Category not found</h1>
+        <h1 className="text-2xl font-medium">Category not found</h1>
         <Link to="/products" className="text-primary hover:underline mt-4 inline-block">Back to products</Link>
       </div>
     );
@@ -32,13 +32,13 @@ const CategoryPage = () => {
           <ChevronRight className="w-3 h-3" />
           <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-text-main font-bold">{category.name}</span>
+          <span className="text-text-main font-medium">{category.name}</span>
         </nav>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="space-y-4">
             <Badge variant="primary">{filteredProducts.length} Products</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold">{category.name}</h1>
+            <h1 className="text-4xl md:text-5xl font-medium">{category.name}</h1>
             <p className="text-text-muted max-w-2xl">
               Browse our premium selection of {category.name.toLowerCase()} meticulously curated for quality and performance.
             </p>
@@ -54,7 +54,7 @@ const CategoryPage = () => {
         ) : (
           <div className="text-center py-20 space-y-4 bg-surface rounded-3xl border border-muted/10">
             <ShoppingBag className="w-16 h-16 text-muted/20 mx-auto" />
-            <h3 className="text-xl font-bold">No products in this category yet</h3>
+            <h3 className="text-xl font-medium">No products in this category yet</h3>
             <p className="text-text-muted">Check back soon for new arrivals in {category.name}.</p>
             <Link to="/products">
               <Button>Explore All Products</Button>

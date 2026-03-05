@@ -15,7 +15,7 @@ const FavoritesPage = () => {
           <div className="w-24 h-24 bg-muted/10 rounded-full flex items-center justify-center mx-auto text-muted">
             <Heart className="w-12 h-12" />
           </div>
-          <h1 className="text-3xl font-bold">Your wishlist is empty</h1>
+          <h1 className="text-3xl font-medium">Your wishlist is empty</h1>
           <p className="text-text-muted max-w-md mx-auto">
             Save items you love to your wishlist and they will appear here.
           </p>
@@ -30,7 +30,7 @@ const FavoritesPage = () => {
   return (
     <main className="pt-32 pb-20 bg-background min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
-        <h1 className="text-3xl font-bold mb-10">My Wishlist ({favorites.length})</h1>
+        <h1 className="text-3xl font-medium mb-10">My Wishlist ({favorites.length})</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {favorites.map((product) => (
@@ -47,10 +47,10 @@ const FavoritesPage = () => {
               </div>
               <div className="p-5 space-y-4">
                 <div>
-                  <h3 className="font-bold text-lg line-clamp-1">{product.title}</h3>
+                  <h3 className="font-medium text-lg line-clamp-1">{product.title}</h3>
                   <p className="text-sm text-text-muted">{product.categories[0].replace('-', ' ')}</p>
                 </div>
-                <p className="font-bold text-xl text-primary">${product.price}</p>
+                <p className="font-medium text-xl text-primary">${product.price}</p>
                 <div className="flex gap-2">
                   <Button className="flex-1 gap-2" onClick={() => openSelectionDrawer(product)}>
                     <ShoppingCart className="w-4 h-4" /> Move to Cart

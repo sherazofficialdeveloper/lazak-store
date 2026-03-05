@@ -19,4 +19,3 @@ View your app in AI Studio: https://ai.studio/apps/4e7f61bd-b6d9-4384-b0af-9adf7
 3. Run the app:
    `npm run dev`
 # Lazak
-# lazak-store

@@ -51,7 +51,7 @@ export const AddToCartDrawer = () => {
           >
             {/* Header */}
             <div className="p-6 border-b border-muted/10 flex items-center justify-between">
-              <h2 className="text-xl font-bold">Select Options</h2>
+              <h2 className="text-xl font-medium">Select Options</h2>
               <button 
                 onClick={closeSelectionDrawer}
                 className="p-2 hover:bg-muted/10 rounded-full transition-colors"
@@ -70,11 +70,11 @@ export const AddToCartDrawer = () => {
                 <div className="space-y-2">
                   <div className="flex items-center gap-1 text-accent">
                     <Star className="w-3 h-3 fill-current" />
-                    <span className="text-xs font-bold">{product.rating}</span>
+                    <span className="text-xs font-medium">{product.rating}</span>
                     <span className="text-xs text-text-muted ml-1">({product.reviews} reviews)</span>
                   </div>
-                  <h3 className="font-bold text-lg leading-tight uppercase tracking-tighter">{product.title}</h3>
-                  <p className="text-2xl font-black text-primary">${currentPrice.toFixed(2)}</p>
+                  <h3 className="font-medium text-lg leading-tight uppercase tracking-tighter">{product.title}</h3>
+                  <p className="text-2xl font-medium text-primary">${currentPrice.toFixed(2)}</p>
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export const AddToCartDrawer = () => {
               {/* Variants */}
               {product.variants && product.variants.length > 0 && (
                 <div className="space-y-4">
-                  <h4 className="font-bold text-sm uppercase tracking-widest text-text-muted">Select Edition</h4>
+                  <h4 className="font-medium text-sm uppercase tracking-widest text-text-muted">Select Edition</h4>
                   <div className="grid grid-cols-1 gap-3">
                     {product.variants.map((variant) => (
                       <button
@@ -98,8 +98,8 @@ export const AddToCartDrawer = () => {
                         }`}
                       >
                         <div className="text-left">
-                          <p className="font-bold uppercase text-sm">{variant.name}</p>
-                          <p className="text-[10px] text-text-muted uppercase tracking-widest font-bold">
+                          <p className="font-medium uppercase text-sm">{variant.name}</p>
+                          <p className="text-[10px] text-text-muted uppercase tracking-widest font-medium">
                             {variant.priceModifier === 0 ? 'Base Price' : `+$${variant.priceModifier} upgrade`}
                           </p>
                         </div>
@@ -116,7 +116,7 @@ export const AddToCartDrawer = () => {
 
               {/* Quantity */}
               <div className="space-y-4">
-                <h4 className="font-bold text-sm uppercase tracking-widest text-text-muted">Quantity</h4>
+                <h4 className="font-medium text-sm uppercase tracking-widest text-text-muted">Quantity</h4>
                 <div className="flex items-center gap-6">
                   <div className="flex items-center gap-4 bg-muted/5 p-1 border border-muted/10">
                     <Button 
@@ -126,7 +126,7 @@ export const AddToCartDrawer = () => {
                     >
                       <Minus className="w-4 h-4" />-
                     </Button>
-                    <span className="font-bold text-lg w-8 text-center">{quantity}</span>
+                    <span className="font-medium text-lg w-8 text-center">{quantity}</span>
                     <Button 
                       variant="icon" 
                       className="w-10 h-10 rounded-none" 
@@ -136,7 +136,7 @@ export const AddToCartDrawer = () => {
                     </Button>
                   </div>
                   <div className="text-sm">
-                    <p className="font-bold text-green-500 uppercase text-xs tracking-widest">In Stock</p>
+                    <p className="font-medium text-green-500 uppercase text-xs tracking-widest">In Stock</p>
                     <p className="text-text-muted text-xs">{product.stock} units available</p>
                   </div>
                 </div>
@@ -163,18 +163,18 @@ export const AddToCartDrawer = () => {
             <div className="p-6 border-t border-muted/10 bg-muted/5 space-y-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-text-muted font-medium uppercase text-xs tracking-widest">Total Price</span>
-                <span className="text-2xl font-black text-primary">${(currentPrice * quantity).toFixed(2)}</span>
+                <span className="text-2xl font-medium text-primary">${(currentPrice * quantity).toFixed(2)}</span>
               </div>
               <div className="flex gap-3">
                 <Button 
                   variant="outline" 
-                  className="flex-1 rounded-none h-14 uppercase tracking-widest text-xs font-black"
+                  className="flex-1 rounded-none h-14 uppercase tracking-widest text-xs font-medium"
                   onClick={closeSelectionDrawer}
                 >
                   Cancel
                 </Button>
                 <Button 
-                  className="flex-1 rounded-none h-14 shadow-md hover:shadow-lg uppercase tracking-widest text-xs font-black"
+                  className="flex-1 rounded-none h-14 shadow-md hover:shadow-lg uppercase tracking-widest text-xs font-medium"
                   onClick={handleConfirm}
                 >
                   Confirm Add to Cart

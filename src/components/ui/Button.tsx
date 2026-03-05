@@ -8,42 +8,40 @@ function cn(...inputs: ClassValue[]) {
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent' | 'icon';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent' | 'icon' | 'auth';
   size?: 'sm' | 'md' | 'lg' | 'icon';
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
     const variants = {
-      primary: 'bg-primary text-white hover:bg-primary/90 shadow-soft',
-      secondary: 'bg-secondary text-white hover:bg-secondary/90 shadow-soft',
-      accent: 'bg-accent text-white hover:bg-accent/90 shadow-soft',
-      outline: 'border-2 border-primary text-primary hover:bg-primary/5',
+      primary: 'bg-primary text-white border-2 border-primary hover:bg-transparent hover:text-primary',
+      secondary: 'bg-secondary text-white border-2 border-secondary hover:bg-transparent hover:text-secondary',
+      accent: 'bg-accent text-white border-2 border-accent hover:bg-transparent hover:text-accent',
+      outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
       ghost: 'hover:bg-primary/5 text-text-main',
       icon: 'p-2 rounded-full hover:bg-muted/10',
+      auth: 'bg-primary text-white border-2 border-primary hover:bg-transparent hover:text-primary',
     };
 
     const sizes = {
-      sm: 'px-3 py-1.5 text-sm rounded-sm',
-      md: 'px-6 py-2.5 text-base rounded-md',
-      lg: 'px-8 py-3.5 text-lg rounded-lg',
-      icon: 'w-10 h-10 flex items-center justify-center',
+      sm: 'px-4 py-2 text-sm rounded-[10px]',
+      md: 'px-6 py-2.5 text-base rounded-[12px]',
+      lg: 'px-8 py-3.5 text-lg rounded-[14px]',
+      icon: 'w-10 h-10 flex items-center justify-center rounded-[12px]',
     };
 
     return (
-      <motion.button
-        ref={ref as any}
-        whileHover={{ scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-        whileTap={{ scale: 0.97 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      <button
+        ref={ref}
         className={cn(
-          'inline-flex items-center justify-center font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none',
+          'inline-flex items-center justify-center font-medium transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none uppercase tracking-tight',
           variants[variant],
           size !== 'icon' && sizes[size],
           size === 'icon' && sizes.icon,
           className
         )}
-        {...props as any}
+        {...props}
       />
     );
   }

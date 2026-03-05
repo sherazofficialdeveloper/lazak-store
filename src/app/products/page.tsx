@@ -110,7 +110,7 @@ const ProductsPage = () => {
             className="w-full md:w-64 space-y-8 shrink-0"
           >
             <div className="space-y-4">
-              <h3 className="font-bold text-lg border-b border-muted/10 pb-2">Categories</h3>
+              <h3 className="font-medium text-lg border-b border-muted/10 pb-2">Categories</h3>
               <div className="flex flex-col gap-2">
                 <button 
                   onClick={() => handleCategoryChange('all')}
@@ -135,7 +135,7 @@ const ProductsPage = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-bold text-lg border-b border-muted/10 pb-2">Price Range</h3>
+              <h3 className="font-medium text-lg border-b border-muted/10 pb-2">Price Range</h3>
               <div className="space-y-4">
                 <input 
                   type="range" 
@@ -147,14 +147,14 @@ const ProductsPage = () => {
                 />
                 <div className="flex items-center justify-between text-xs text-text-muted">
                   <span>$0</span>
-                  <span className="font-bold text-primary">Up to ${maxPrice}</span>
+                  <span className="font-medium text-primary">Up to ${maxPrice}</span>
                   <span>$1000+</span>
                 </div>
               </div>
             </div>
 
             <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-              <h4 className="font-bold text-primary mb-2">USA Support</h4>
+              <h4 className="font-medium text-primary mb-2">USA Support</h4>
               <p className="text-xs text-text-muted leading-relaxed">
                 All products ship from our USA warehouses with 24/7 local support.
               </p>
@@ -169,7 +169,7 @@ const ProductsPage = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface p-4 rounded-xl border border-muted/10">
               <div className="flex items-center gap-4">
                 <span className="text-sm text-text-muted font-medium">
-                  Showing <span className="text-text-main font-bold">{displayedProducts.length}</span> of <span className="text-text-main font-bold">{PRODUCTS.length}</span> products
+                  Showing <span className="text-text-main font-medium">{displayedProducts.length}</span> of <span className="text-text-main font-medium">{PRODUCTS.length}</span> products
                 </span>
               </div>
               
@@ -198,7 +198,7 @@ const ProductsPage = () => {
             </div>
 
             {displayedProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
                 {displayedProducts.map(({ product }, index) => (
                   <ProductCard key={product.id} product={product} index={index} />
                 ))}
@@ -208,7 +208,7 @@ const ProductsPage = () => {
                 <div className="w-20 h-20 bg-muted/10 rounded-full flex items-center justify-center mx-auto text-muted">
                   <Search className="w-10 h-10" />
                 </div>
-                <h3 className="text-xl font-bold">No products found</h3>
+                <h3 className="text-xl font-medium">No products found</h3>
                 <p className="text-text-muted">Try adjusting your filters or search query.</p>
                 <Button variant="outline" onClick={() => {
                   handleCategoryChange('all');

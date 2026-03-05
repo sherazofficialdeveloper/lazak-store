@@ -12,7 +12,7 @@ const BlogDetailPage = () => {
   if (!article) {
     return (
       <div className="pt-40 pb-20 text-center">
-        <h1 className="text-2xl font-bold">Article not found</h1>
+        <h1 className="text-2xl font-medium">Article not found</h1>
         <Link to="/blog" className="text-primary hover:underline mt-4 inline-block">Back to blog</Link>
       </div>
     );
@@ -28,13 +28,13 @@ const BlogDetailPage = () => {
         <div className="space-y-8">
           <div className="space-y-4">
             <Badge variant="secondary">Technology</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-medium leading-tight tracking-tight">
               {article.title}
             </h1>
             <div className="flex flex-wrap items-center gap-6 text-sm text-text-muted border-b border-muted/10 pb-8">
               <div className="flex items-center gap-2">
                 <img src={`https://i.pravatar.cc/100?u=${article.author}`} className="w-8 h-8 rounded-full" alt="" />
-                <span className="font-bold text-text-main">{article.author}</span>
+                <span className="font-medium text-text-main">{article.author}</span>
               </div>
               <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {article.date}</span>
               <span className="flex items-center gap-1"><MessageSquare className="w-4 h-4" /> 12 Comments</span>
@@ -57,7 +57,7 @@ const BlogDetailPage = () => {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
-            <h2 className="text-2xl font-bold text-text-main pt-4">The Evolution of Premium Tech</h2>
+            <h2 className="text-2xl font-medium text-text-main pt-4">The Evolution of Premium Tech</h2>
             <p>
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
@@ -71,7 +71,7 @@ const BlogDetailPage = () => {
           
           <div className="pt-12 border-t border-muted/10 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <span className="text-sm font-bold uppercase tracking-widest text-text-muted">Share:</span>
+              <span className="text-sm font-medium uppercase tracking-widest text-text-muted">Share:</span>
               <div className="flex gap-2">
                 <Button variant="outline" size="icon" className="w-10 h-10 rounded-full">
                   <Share2 className="w-4 h-4" />

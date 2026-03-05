@@ -21,19 +21,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
     switch (product.tier) {
       case 'budget':
         return (
-          <Badge variant="secondary" className="rounded-none font-black text-[10px] uppercase tracking-widest bg-blue-500 text-white border-none">
+          <Badge variant="secondary" className="rounded-none font-medium text-[10px] uppercase tracking-widest bg-blue-500 text-white border-none">
             Starter
           </Badge>
         );
       case 'standard':
         return (
-          <Badge variant="accent" className="rounded-none font-black text-[10px] uppercase tracking-widest">
+          <Badge variant="accent" className="rounded-none font-medium text-[10px] uppercase tracking-widest">
             Best Seller
           </Badge>
         );
       case 'premium':
         return (
-          <Badge variant="primary" className="rounded-none font-black text-[10px] uppercase tracking-widest bg-primary text-white border-none">
+          <Badge variant="primary" className="rounded-none font-medium text-[10px] uppercase tracking-widest bg-primary text-white border-none">
             Pro Choice
           </Badge>
         );
@@ -43,24 +43,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-      whileHover={{ scale: 1.03, zIndex: 10 }}
-      className={`group flex flex-col bg-surface relative h-full border border-muted/10 transition-shadow duration-300 hover:shadow-2xl ${product.tier === 'premium' ? 'ring-2 ring-primary ring-inset' : ''}`}
+    <div 
+      className={`group flex flex-col bg-surface relative h-full border border-muted/5 rounded-[18px] shadow-soft overflow-hidden ${product.tier === 'premium' ? 'ring-2 ring-primary ring-inset' : ''}`}
     >
       {/* Badges */}
       <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
         {tierBadge()}
         {product.tier === 'premium' && (
-          <Badge variant="accent" className="rounded-none font-black text-[10px] uppercase tracking-widest bg-accent text-white border-none">
+          <Badge variant="accent" className="rounded-none font-medium text-[10px] uppercase tracking-widest bg-accent text-white border-none">
             Best Value
           </Badge>
         )}
         {product.hasFreeShipping && (
-          <Badge variant="secondary" className="rounded-none font-black text-[10px] uppercase tracking-widest">
+          <Badge variant="secondary" className="rounded-none font-medium text-[10px] uppercase tracking-widest">
             Free Shipping
           </Badge>
         )}
@@ -70,17 +65,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
         <img 
           src={product.image} 
           alt={product.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
         
         {/* Overlay Actions */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-4">
-          <div className="flex gap-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <div className="flex gap-3">
             <Button 
               variant="icon" 
               size="icon"
-              className="bg-white text-secondary hover:bg-primary hover:text-white transition-all rounded-none w-12 h-12"
+              className="bg-white text-secondary hover:bg-primary hover:text-white transition-all rounded-[10px] w-12 h-12"
               onClick={() => toggleFavorite(product)}
               title="Add to Favorites"
             >
@@ -90,7 +85,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
               <Button 
                 variant="icon" 
                 size="icon"
-                className="bg-white text-secondary hover:bg-primary hover:text-white transition-all rounded-none w-12 h-12"
+                className="bg-white text-secondary hover:bg-primary hover:text-white transition-all rounded-[10px] w-12 h-12"
                 title="Quick View"
               >
                 <Eye className="w-5 h-5" strokeWidth={2.5} />
@@ -99,7 +94,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
           </div>
           
           <Button 
-            className="rounded-none px-8 py-3 bg-primary text-white font-black uppercase tracking-widest text-xs translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+            className="rounded-[12px] px-8 py-3 bg-primary text-white font-medium uppercase tracking-widest text-xs"
             onClick={() => openSelectionDrawer(product)}
           >
             Quick Add
@@ -110,7 +105,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
       <div className="p-5 flex-grow flex flex-col">
         <div className="space-y-2 mb-4">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-text-muted font-black uppercase tracking-widest">
+            <span className="text-[10px] text-text-muted font-medium uppercase tracking-widest">
               {product.categories[0].replace(/-/g, ' ')}
             </span>
             <div className="flex items-center gap-0.5">
@@ -120,12 +115,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
                   className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'fill-accent text-accent' : 'text-muted/30'}`} 
                 />
               ))}
-              <span className="text-[10px] font-bold ml-1 text-text-muted">({product.reviews})</span>
+              <span className="text-[10px] font-medium ml-1 text-text-muted">({product.reviews})</span>
             </div>
           </div>
           
           <Link to={`/products/${product.slug}`}>
-            <h3 className="font-bold text-lg hover:text-primary transition-colors line-clamp-2 uppercase tracking-tight leading-tight h-14">
+            <h3 className="font-medium text-lg hover:text-primary transition-colors line-clamp-2 uppercase tracking-tight leading-tight min-h-[3rem]">
               {product.title}
             </h3>
           </Link>
@@ -134,9 +129,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
         <div className="mt-auto space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-2xl font-black text-secondary">${product.price}</span>
+              <span className="text-2xl font-medium text-secondary">${product.price}</span>
               {product.hasFreeShipping && (
-                <span className="text-[9px] text-emerald-600 font-bold uppercase tracking-widest">Free Shipping</span>
+                <span className="text-[9px] text-emerald-600 font-medium uppercase tracking-widest">Free Shipping</span>
               )}
             </div>
           </div>
@@ -144,7 +139,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
           <div className="grid grid-cols-2 gap-2">
             <Button 
               size="sm" 
-              className="rounded-none uppercase tracking-widest text-[10px] font-black h-10"
+              className="rounded-[10px] uppercase tracking-widest text-[10px] font-medium h-10"
               onClick={() => openSelectionDrawer(product)}
             >
               Add to Cart
@@ -153,7 +148,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
               <Button 
                 size="sm" 
                 variant="outline"
-                className="w-full rounded-none uppercase tracking-widest text-[10px] font-black h-10"
+                className="w-full rounded-[10px] uppercase tracking-widest text-[10px] font-medium h-10"
               >
                 View Product
               </Button>
@@ -161,6 +156,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0 }) 
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

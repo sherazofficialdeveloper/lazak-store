@@ -22,7 +22,7 @@ export const Badge: React.FC<BadgeProps> = ({ children, variant = 'primary', cla
 
   return (
     <span className={cn(
-      'px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider',
+      'px-2.5 py-0.5 rounded-full text-xs font-medium uppercase tracking-wider',
       variants[variant],
       className
     )}>

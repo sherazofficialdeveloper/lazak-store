@@ -15,7 +15,7 @@ const CartPage = () => {
           <div className="w-24 h-24 bg-muted/10 rounded-full flex items-center justify-center mx-auto text-muted">
             <ShoppingBag className="w-12 h-12" />
           </div>
-          <h1 className="text-3xl font-bold">Your cart is empty</h1>
+          <h1 className="text-3xl font-medium">Your cart is empty</h1>
           <p className="text-text-muted max-w-md mx-auto">
             Looks like you haven't added anything to your cart yet. Explore our premium collection to find something you love.
           </p>
@@ -30,7 +30,7 @@ const CartPage = () => {
   return (
     <main className="pt-32 pb-20 bg-background min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
-        <h1 className="text-3xl font-bold mb-10">Shopping Cart ({cart.length})</h1>
+        <h1 className="text-3xl font-medium mb-10">Shopping Cart ({cart.length})</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           {/* Cart Items */}
@@ -43,15 +43,15 @@ const CartPage = () => {
                 <div className="flex-1 flex flex-col justify-between py-1">
                   <div className="flex justify-between gap-4">
                     <div>
-                      <h3 className="font-bold text-lg">{item.title}</h3>
+                      <h3 className="font-medium text-lg">{item.title}</h3>
                       {item.selectedVariant && (
-                        <p className="text-xs font-bold text-primary uppercase tracking-widest mt-1">
+                        <p className="text-xs font-medium text-primary uppercase tracking-widest mt-1">
                           {item.selectedVariant.name}
                         </p>
                       )}
                       <p className="text-sm text-text-muted">{item.categories[0].replace('-', ' ')}</p>
                     </div>
-                    <p className="font-bold text-lg">
+                    <p className="font-medium text-lg">
                       ${(item.price + (item.selectedVariant?.priceModifier || 0)).toFixed(2)}
                     </p>
                   </div>
@@ -65,7 +65,7 @@ const CartPage = () => {
                       >
                         <Minus className="w-4 h-4" />-
                       </Button>
-                      <span className="font-bold w-6 text-center">{item.quantity}</span>
+                      <span className="font-medium w-6 text-center">{item.quantity}</span>
                       <Button 
                         variant="icon" 
                         className="w-8 h-8" 
@@ -90,7 +90,7 @@ const CartPage = () => {
           {/* Summary */}
           <div className="space-y-6">
             <Card className="p-8 space-y-6">
-              <h2 className="text-xl font-bold border-b border-muted/10 pb-4">Order Summary</h2>
+              <h2 className="text-xl font-medium border-b border-muted/10 pb-4">Order Summary</h2>
               <div className="space-y-4">
                 <div className="flex justify-between text-text-muted">
                   <span>Subtotal</span>
@@ -104,7 +104,7 @@ const CartPage = () => {
                   <span>Tax</span>
                   <span>$0.00</span>
                 </div>
-                <div className="flex justify-between text-xl font-bold pt-4 border-t border-muted/10">
+                <div className="flex justify-between text-xl font-medium pt-4 border-t border-muted/10">
                   <span>Total</span>
                   <span className="text-primary">${cartTotal.toFixed(2)}</span>
                 </div>

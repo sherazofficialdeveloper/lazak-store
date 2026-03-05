@@ -23,7 +23,7 @@ export const Toast = () => {
                   <CheckCircle className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-sm leading-tight">{toast.message}</p>
+                  <p className="font-medium text-sm leading-tight">{toast.message}</p>
                   <p className="text-xs text-white/60 mt-0.5">Successfully added to your collection</p>
                 </div>
               </div>
@@ -41,12 +41,12 @@ export const Toast = () => {
                   <ShoppingCart className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Cart Status</p>
-                  <p className="text-sm font-bold">{cartCount} {cartCount === 1 ? 'Item' : 'Items'} • ${cartTotal.toFixed(2)}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-white/40 font-medium">Cart Status</p>
+                  <p className="text-sm font-medium">{cartCount} {cartCount === 1 ? 'Item' : 'Items'} • ${cartTotal.toFixed(2)}</p>
                 </div>
               </div>
               <Link to="/cart" onClick={hideToast}>
-                <button className="text-xs font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
+                <button className="text-xs font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
                   View Cart <ArrowRight className="w-3 h-3" />
                 </button>
               </Link>
@@ -54,13 +54,13 @@ export const Toast = () => {
 
             <div className="flex gap-2">
               <Link to="/cart" className="flex-1" onClick={hideToast}>
-                <button className="w-full py-3 bg-primary text-white rounded-xl text-xs font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                <button className="w-full py-3 bg-primary text-white rounded-xl text-xs font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
                   Checkout Now
                 </button>
               </Link>
               <button 
                 onClick={hideToast}
-                className="px-6 py-3 bg-white/10 text-white rounded-xl text-xs font-bold hover:bg-white/20 transition-all"
+                className="px-6 py-3 bg-white/10 text-white rounded-xl text-xs font-medium hover:bg-white/20 transition-all"
               >
                 Continue
               </button>
