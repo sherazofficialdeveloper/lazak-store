@@ -36,7 +36,7 @@ export const Logo: React.FC<LogoProps> = ({
   return (
    
         <div className="flex flex-col leading-none">
-        <img src="LA-Logo.png" alt="" className="w-[120px] h-20"/>
+        <img src="/final-logo.png" alt="" className="w-[120px] h-20"/>
         </div>
   );
 };

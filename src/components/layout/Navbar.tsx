@@ -47,7 +47,7 @@ export const Navbar = () => {
         <div className="flex flex-col">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className={isTransparent ? 'brightness-0 invert' : ''}>
+            <div >
               <Logo />
             </div>
 
