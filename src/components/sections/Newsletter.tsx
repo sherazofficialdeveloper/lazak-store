@@ -10,14 +10,14 @@ export const Newsletter = () => {
       <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full" />
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white/5 rounded-full" />
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-5xl mx-auto bg-surface p-8 md:p-16 shadow-medium flex flex-col lg:flex-row items-center gap-12 border border-white/20">
+      <div className="px-4 md:px-6 relative z-10 ">
+        <div className="max-w-8xl container mx-auto bg-surface p-8 md:p-16 shadow-medium flex flex-col lg:flex-row items-center gap-12 border border-white/20">
           <div className="space-y-6 flex-1">
             <div className="w-14 h-14 bg-primary/10 flex items-center justify-center text-primary">
               <Mail className="w-7 h-7" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-medium text-text-main tracking-tight uppercase leading-none">Join LAZAK for exclusive updates & offers</h2>
+              <h2 className="text-3xlcontainer mx-auto  md:text-4xl font-medium text-text-main tracking-tight uppercase leading-none">Join LAZAK for exclusive updates & offers</h2>
               <p className="text-muted text-lg font-medium">
                 Subscribe to get early access to new BBQ drops, exclusive recipes, and grilling tips.
               </p>

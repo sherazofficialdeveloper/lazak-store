@@ -16,6 +16,8 @@
   
   --shadow-soft: var(--shadow-soft);
   --shadow-medium: var(--shadow-medium);
+  
+  --breakpoint-uw: 2000px;
 }
 
 :root {
@@ -79,4 +81,13 @@
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-muted/30 rounded-full hover:bg-muted/50 transition-colors;
+}
+
+/* Ultra-wide screen layout fix (≥ 2000px) */
+@media (min-width: 2000px) {
+  .container {
+    max-width: 2200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

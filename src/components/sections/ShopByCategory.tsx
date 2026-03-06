@@ -24,7 +24,6 @@ export const ShopByCategory = () => {
           </div>
         </div>
         
-        {/* Grid Layout (2-3 rows style) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {CATEGORIES.map((category, index) => (
             <div key={category.id}>
